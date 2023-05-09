@@ -26,3 +26,20 @@ exports.milkManLoginService = (req, res) => {
         }
     })
 }
+
+// get all customers
+exports.getAllCustomers = (req, res) => {
+    const body = req.body;
+
+    authModel.getAllCustomers(body, (err, users) => {
+        if(err) {
+            res.json({
+                Error : err,
+                status: false
+            })
+        }
+        else {
+            res.json(users);
+        }
+    })
+}

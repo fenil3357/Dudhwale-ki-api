@@ -15,3 +15,16 @@ exports.milkManLoginModel = (data, callBack) => {
         else callBack(null, res);
     })
 }
+
+// Get all customer 
+exports.getAllCustomers = (data, callBack) => {
+    const query = 'select * from customer';
+
+    dbConn.query(query, (err, res) => {
+        if(err) {
+            console.log(err);
+            callBack(err);
+        }
+        else callBack(null, res);
+    })
+}
